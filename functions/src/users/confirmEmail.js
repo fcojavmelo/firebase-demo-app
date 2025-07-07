@@ -14,7 +14,7 @@ export const confirmEmail = onRequest(async (req, res) => {
         .get();
 
     if (querySnapshot.size === 0) {
-        return res.redirect('http://localhost:3000/email-confirmation/failure');
+        return res.redirect('https://fir-test-2506c.web.app/email-confirmation/failure');
     }
 
     const temporaryUserDoc = querySnapshot.docs[0];
@@ -42,7 +42,7 @@ export const confirmEmail = onRequest(async (req, res) => {
         .doc(temporaryUserDoc.id)
         .delete();
 
-    return res.redirect('http://localhost:3000/email-confirmation/success');
+    return res.redirect('https://fir-test-2506c.web.app/email-confirmation/success');
 
 
 });

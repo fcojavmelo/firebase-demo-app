@@ -11,6 +11,7 @@ import {
     TextArea,
 } from '../ui';
 import { signOut } from './signOut';
+import { createAccount } from './createAccount';
 
 // These are styled components, which are used throughout
 // the application. Basically, they allow us to define CSS
@@ -83,13 +84,15 @@ export const CreateAccountPage = () => {
             bio
         };
 
-        await fetch('/createAccount', {
+        await createAccount(newUserInfo);
+
+/*         await fetch('/createAccount', {
             method: 'POST',
             body: JSON.stringify({ newUserInfo }),
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        }); */
 
         alert('Account created! Please check your inbox for a confirmation email.');
 

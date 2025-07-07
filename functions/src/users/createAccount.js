@@ -1,15 +1,12 @@
-import { onRequest } from "firebase-functions/v2/https";
+import { onCall } from "firebase-functions/v2/https";
 import { createAuthUser } from './createAuthUser';
 import { createTemporaryUser } from './createTemporaryUser';
 
-export const createAccount = onRequest(async (req, res) => {
+export const createAccount = onCall(async (request) => {
 
-    console.log('request: ' + req.body);
-
-    const { newUserInfo } = req.body;
+    const newUserInfo = request.data;
 
     const authUid = await createAuthUser(newUserInfo);
     await createTemporaryUser(authUid, newUserInfo);
 
-    return res.status(200).send('Success!');
 });

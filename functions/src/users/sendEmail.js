@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { appPassword } from '../../../src/firebaseConfigFile';
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -7,7 +8,7 @@ const transporter = nodemailer.createTransport({
     auth: {
         //fake email goes here:
         user: 'fbmailsender123@gmail.com',
-        pass: 'mseucutoktyxddfu'
+        pass: appPassword
     }
 });
 
